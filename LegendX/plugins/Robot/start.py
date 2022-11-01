@@ -159,7 +159,7 @@ async def start_comm(client, message: Message, _):
                             text="💞 ʏᴏᴜᴛᴜʙᴇ 💞", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="💞 sᴜᴩᴩᴏʀᴛ 💞", url="https://t.me/LegendSupport"
+                            text="💞 sᴜᴩᴩᴏʀᴛ 💞", url="https://t.me/YaaroKiMehfil_YKM"
                         ),
                     ],
                 ]
@@ -188,22 +188,23 @@ async def start_comm(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                await message.reply_sticker("CAACAgQAAx0CYC-myAADE2LefKUjU-OigQ6VSQMjLlshYXehAAKgEAACQln9BAYXtSA7csUgHgQ")
+                await message.reply_sticker("CAACAgQAAx0CXbvlWwACIVRjYXh80K0o7WK5ipj5rrXtda2EyAACSQwAAktQyVPe4QgqSxbxvB4E")
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
-                        config.MUSIC_BOT_NAME
+                        message.from_user.first_name,
+                        config.MUSIC_BOT_NAME,
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
             except:
                 await message.reply_text(
-                    _["start_2"].format(config.MUSIC_BOT_NAME),
+                    _["start_2"].format(message.from_user.first_name, config.MUSIC_BOT_NAME),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
         else:
             await message.reply_text(
-                _["start_2"].format(config.MUSIC_BOT_NAME),
+                _["start_2"].format(message.from_user.first_name, config.MUSIC_BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(out),
             )
         if await is_on_off(config.LOG):
