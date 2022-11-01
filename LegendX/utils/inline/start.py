@@ -10,7 +10,7 @@ def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="🥺 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴩ 🥺",
+                text="➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴩ ➕",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
@@ -25,7 +25,7 @@ def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
         ],
         [
             InlineKeyboardButton(
-                text="🔥 ᴍᴀɪɴᴛᴀɪɴᴇʀ 🔥", user_id=OWNER),
+                text="🔥 ᴏᴡɴᴇʀ 🔥", user_id=OWNER),
             InlineKeyboardButton(
                 text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"{config.SUPPORT_GROUP}"
             ),
@@ -38,25 +38,27 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="🥺 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ʙᴀʙʏ 🥺",
+                text="➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             ),
         ],
         [
+            InlineKeyboardButton(text="🖤 ᴏᴡɴᴇʀ 🖤", user_id=OWNER),
             InlineKeyboardButton(
-                text="💫 ʜᴇʟᴩ 💫", callback_data="settings_back_helper"
-            ),
-        ],
-        [
-            InlineKeyboardButton(text="💔 ᴍᴀɪɴᴛᴀɪɴᴇʀ 💔", user_id=OWNER),
-            InlineKeyboardButton(
-                text="❤️‍🔥 sᴜᴩᴩᴏʀᴛ ❤️‍🔥", url=f"{config.SUPPORT_GROUP}"
+                text="🍁 sᴜᴩᴩᴏʀᴛ 🍁", url=f"{config.SUPPORT_GROUP}"
             ),
         ],
         [
             InlineKeyboardButton(
-                    text="💮 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 💮", url=f"{config.UPSTREAM_REPO}"
-                )
+                text="🔰 sᴇᴇ ᴍʏ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs 🔰", callback_data="settings_back_helper"
+            ),
+        ],
+        [
+            InlineKeyboardButton(text="✨ ᴄʜᴀɴɴᴇʟ ✨", url=f"{config.SUPPORT_CHANNEL}"
+            ),
+            InlineKeyboardButton(
+                text="🕊️ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🕊️", url=f"https://telegra.ph/file/9b0455dae14d5639f936d.mp4"
+            )
         ],
      ]
     return buttons
