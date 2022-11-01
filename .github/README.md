@@ -1,9 +1,9 @@
 <h2 align="center">
-    • ━━ ⌜ ʟᴇɢᴇɴᴅ ✘ ᴍᴜsɪᴄ ⌟ ━━ •
+    • ━━ ˹ʟᴇɢᴇɴᴅ ✘ ᴍᴜsɪᴄ˼ ━━ •
 </h2>
 
 <p align="center">
-  <img src="https://telegra.ph/file/51fc0d0b6b99b10379709.jpg">
+  <img src="https://telegra.ph/file/253219eed5b37b5096524.jpg">
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="https://telegra.ph/file/afed48fd6468fb29620ea.jpg">
+  <img src="https://telegra.ph/file/724b82cfcfe2927a78050.jpg">
 </p>
 
 <h3 align="center">
@@ -37,11 +37,11 @@
 </h3>
 
 <p align="center">
-<a href="https://telegram.me/Legend_Chats"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/YaaroKiMehfil_YKM"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 <p align="center">
-<a href="https://telegram.me/XH4REEF_L4DK4_43"><img src="https://img.shields.io/badge/%20Legend-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/CRAZYxROMEO"><img src="https://img.shields.io/badge/%20Legend-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 <h3 align="center">
