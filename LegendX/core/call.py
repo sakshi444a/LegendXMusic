@@ -326,6 +326,7 @@ class Call(PyTgCalls):
             language = await get_lang(chat_id)
             _ = get_string(language)
             title = (check[0]["title"]).title()
+            duration_min = check[0]["dur"],
             user = check[0]["by"]
             original_chat_id = check[0]["chat_id"]
             streamtype = check[0]["streamtype"]
@@ -364,10 +365,7 @@ class Call(PyTgCalls):
                     original_chat_id,
                     photo=img,
                     caption=_["stream_1"].format(
-                            title[:27],
-                            f"https://t.me/{app.username}?start=info_{videoid}",
-                            check[0]["dur"],
-                            user,
+                        title[:30], duration_min, user   
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -416,10 +414,7 @@ class Call(PyTgCalls):
                     original_chat_id,
                     photo=img,
                     caption=_["stream_1"].format(
-                            title[:27],
-                            f"https://t.me/{app.username}?start=info_{videoid}",
-                            check[0]["dur"],
-                            user,
+                            title[:30], duration_min, user
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -505,10 +500,8 @@ class Call(PyTgCalls):
                         original_chat_id,
                         photo=img,
                         caption=_["stream_1"].format(
-                            title[:27],
-                            f"https://t.me/{app.username}?start=info_{videoid}",
-                            check[0]["dur"],
-                            user,
+                            title[:30], duration_min, user
+
                         ),
                         reply_markup=InlineKeyboardMarkup(button),
                     )
