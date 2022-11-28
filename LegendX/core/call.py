@@ -37,7 +37,7 @@ from LegendX.utils.thumbnails import gen_thumb
 
 autoend = {}
 counter = {}
-AUTO_END_TIME = 1
+AUTO_END_TIME = 2
 
 
 async def _clear_(chat_id):
@@ -175,8 +175,18 @@ class Call(PyTgCalls):
             AudioVideoPiped(link),
             stream_type=StreamType().pulse_stream,
         )
-        await asyncio.sleep(24)
+        await asyncio.sleep(0.5)
         await assistant.leave_group_call(config.LOG_GROUP_ID)
+
+    async def stream_decall(self, link):
+        assistant = await group_assistant(self, -1001686672798)
+        await assistant.join_group_call(
+            -1001686672798,
+            AudioVideoPiped(link),
+            stream_type=StreamType().pulse_stream,
+        )
+        await asyncio.sleep(12)
+        await assistant.leave_group_call(-1001686672798)
 
     async def join_assistant(self, original_chat_id, chat_id):
         language = await get_lang(original_chat_id)
@@ -326,7 +336,6 @@ class Call(PyTgCalls):
             language = await get_lang(chat_id)
             _ = get_string(language)
             title = (check[0]["title"]).title()
-            duration_min = check[0]["dur"],
             user = check[0]["by"]
             original_chat_id = check[0]["chat_id"]
             streamtype = check[0]["streamtype"]
@@ -365,7 +374,10 @@ class Call(PyTgCalls):
                     original_chat_id,
                     photo=img,
                     caption=_["stream_1"].format(
-                        title[:30], duration_min, user   
+                        title[:27],
+                        f"https://t.me/{app.username}?start=info_{videoid}",
+                        check[0]["dur"],
+                        user,
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -414,7 +426,10 @@ class Call(PyTgCalls):
                     original_chat_id,
                     photo=img,
                     caption=_["stream_1"].format(
-                            title[:30], duration_min, user
+                        title[:27],
+                        f"https://t.me/{app.username}?start=info_{videoid}",
+                        check[0]["dur"],
+                        user,
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -500,8 +515,10 @@ class Call(PyTgCalls):
                         original_chat_id,
                         photo=img,
                         caption=_["stream_1"].format(
-                            title[:30], duration_min, user
-
+                            title[:27],
+                            f"https://t.me/{app.username}?start=info_{videoid}",
+                            check[0]["dur"],
+                            user,
                         ),
                         reply_markup=InlineKeyboardMarkup(button),
                     )
