@@ -164,7 +164,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 await CallbackQuery.message.reply_text(
                     _["admin_10"].format(mention)
                 )
-                return await Anon.stop_stream(chat_id)
+                return await Legend.stop_stream(chat_id)
             except:
                 return
         await CallbackQuery.answer()
