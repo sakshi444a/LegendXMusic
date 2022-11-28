@@ -25,8 +25,8 @@ basic = {}
 
 
 def get_image(videoid):
-    if os.path.isfile(f"cache/{videoid}.png"):
-        return f"cache/{videoid}.png"
+    if os.path.isfile(f"cache/{videoid}.jpg"):
+        return f"cache/{videoid}.jpg"
     else:
         return config.YOUTUBE_IMG_URL
 
@@ -97,7 +97,7 @@ async def ping_com(client, message: Message, _):
 📌**ᴛɪᴛʟᴇ:** {title}
 
 🍒**ᴛʏᴩᴇ:** {typo}
-💔**ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {user}
+💖**ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {user}
 {send}"""
     upl = (
         queue_markup(_, DUR, "c" if cplay else "g", videoid)
@@ -207,7 +207,7 @@ async def queued_tracks(client, CallbackQuery: CallbackQuery, _):
             )
         if "📌" in msg:
             msg = msg.replace("📌", "")
-        link = await Anonbin(msg)
+        link = await LegendXbin(msg)
         med = InputMediaPhoto(
             media=link, caption=_["queue_3"].format(link)
         )
@@ -277,7 +277,7 @@ async def queue_back(client, CallbackQuery: CallbackQuery, _):
 📌 **ᴛɪᴛʟᴇ:** {title}
 
 🍒 **ᴛʏᴩᴇ:** {typo}
-💔 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {user}
+💖 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {user}
 {send}"""
     upl = (
         queue_markup(_, DUR, cplay, videoid)
