@@ -13,12 +13,12 @@ from LegendX.utils.database import (add_active_chat,
                                        is_active_chat,
                                        is_video_allowed, music_on)
 from LegendX.utils.exceptions import AssistantErr
-from LegendX.utils.inline.play import (stream_markup,
+from LegendX.utils.inline.play import (stream_markup, queue_markup,
                                           telegram_markup)
 from LegendX.utils.inline.playlist import close_markup
 from LegendX.utils.pastebin import LegendXbin
 from LegendX.utils.stream.queue import put_queue, put_queue_index
-from LegendX.utils.thumbnails import gen_thumb
+from LegendX.utils.thumbnails import gen_thumb, gen_qthumb
 
 
 async def stream(
@@ -110,7 +110,10 @@ async def stream(
                     original_chat_id,
                     photo=img,
                     caption=_["stream_1"].format(
-                        title[:30], duration_min, user_name
+                        title[:27],
+                        f"https://t.me/{app.username}?start=info_{vidid}",
+                        duration_min,
+                        user_name,
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -132,7 +135,7 @@ async def stream(
             return await app.send_photo(
                 original_chat_id,
                 photo=carbon,
-                caption=_["playlist_18"].format(link, position),
+                caption=_["playlist_18"].format(position, link),
                 reply_markup=upl,
             )
     elif streamtype == "youtube":
@@ -160,11 +163,15 @@ async def stream(
                 "video" if video else "audio",
             )
             position = len(db.get(chat_id)) - 1
-            await app.send_message(
+            qimg = await gen_qthumb(vidid)
+            button = queue_markup(_, vidid, chat_id)
+            run = await app.send_photo(
                 original_chat_id,
-                _["queue_4"].format(
-                    position, title[:30], duration_min, user_name
+                photo=qimg,
+                caption=_["queue_4"].format(
+                    position, title[:27], duration_min, user_name
                 ),
+                reply_markup=InlineKeyboardMarkup(button),
             )
         else:
             if not forceplay:
@@ -190,7 +197,10 @@ async def stream(
                 original_chat_id,
                 photo=img,
                 caption=_["stream_1"].format(
-                    title[:30], duration_min, user_name
+                    title[:27],
+                    f"https://t.me/{app.username}?start=info_{vidid}",
+                    duration_min,
+                    user_name,
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
             )
@@ -310,7 +320,7 @@ async def stream(
         link = result["link"]
         vidid = result["vidid"]
         title = (result["title"]).title()
-        duration_min = "Live Track"
+        duration_min = "ʟɪᴠᴇ"
         status = True if video else None
         if await is_active_chat(chat_id):
             await put_queue(
@@ -337,7 +347,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Legend.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=status
             )
             await put_queue(
@@ -358,8 +368,10 @@ async def stream(
                 original_chat_id,
                 photo=img,
                 caption=_["stream_1"].format(
-                    user_name,
+                    title[:27],
                     f"https://t.me/{app.username}?start=info_{vidid}",
+                    duration_min,
+                    user_name,
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
             )
