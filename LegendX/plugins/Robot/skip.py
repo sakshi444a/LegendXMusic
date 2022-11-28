@@ -57,8 +57,7 @@ async def skip(cli, message: Message, _, chat_id):
                                 try:
                                     await message.reply_text(
                                         _["admin_10"].format(
-                                            message.from_user.first_name,
-                                            message.chat.title
+                                            message.from_user.first_name
                                         )
                                     )
                                     await Legend.stop_stream(chat_id)
@@ -85,16 +84,16 @@ async def skip(cli, message: Message, _, chat_id):
                     await auto_clean(popped)
             if not check:
                 await message.reply_text(
-                    _["admin_10"].format(message.from_user.first_name, message.chat.title),
+                    _["admin_10"].format(message.from_user.first_name)
                 )
                 try:
-                    return await Legend.stop_stream(chat_id)
+                    return await Anon.stop_stream(chat_id)
                 except:
                     return
         except:
             try:
                 await message.reply_text(
-                    _["admin_10"].format(message.from_user.first_name, message.chat.title),
+                    _["admin_10"].format(message.from_user.first_name)
                 )
                 return await Legend.stop_stream(chat_id)
             except:
@@ -104,7 +103,6 @@ async def skip(cli, message: Message, _, chat_id):
     user = check[0]["by"]
     streamtype = check[0]["streamtype"]
     videoid = check[0]["vidid"]
-    duration_min = check[0]["dur"]
     status = True if str(streamtype) == "video" else None
     if "live_" in queued:
         n, link = await YouTube.video(videoid, True)
@@ -121,9 +119,10 @@ async def skip(cli, message: Message, _, chat_id):
         run = await message.reply_photo(
             photo=img,
             caption=_["stream_1"].format(
-                    title[:27],
-                    duration_min,
-                    user,
+                title[:27],
+                f"https://t.me/{app.username}?start=info_{videoid}",
+                check[0]["dur"],
+                user,
             ),
             reply_markup=InlineKeyboardMarkup(button),
         )
@@ -151,9 +150,10 @@ async def skip(cli, message: Message, _, chat_id):
         run = await message.reply_photo(
             photo=img,
             caption=_["stream_1"].format(
-                    title[:27],
-                    duration_min,
-                    user,
+                title[:27],
+                f"https://t.me/{app.username}?start=info_{videoid}",
+                check[0]["dur"],
+                user,
             ),
             reply_markup=InlineKeyboardMarkup(button),
         )
@@ -211,7 +211,8 @@ async def skip(cli, message: Message, _, chat_id):
                 photo=img,
                 caption=_["stream_1"].format(
                     title[:27],
-                    duration_min,
+                    f"https://t.me/{app.username}?start=info_{videoid}",
+                    check[0]["dur"],
                     user,
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
