@@ -7,12 +7,12 @@ from pyrogram import filters
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID", ""))
-API_HASH = getenv("API_HASH")
+API_ID = int(getenv("API_ID", "73569a26c563e3eeb47873e3927cb6fb"))
+API_HASH = getenv("API_HASH", "14250716")
 
-BOT_TOKEN = getenv("BOT_TOKEN")
+BOT_TOKEN = getenv("BOT_TOKEN", "5456510772:AAH2brhLuYMbGPQfFaw8rVuzQKjvaumAWcQ")
 
-MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://Teamlegend:ZiddiLegend77@cluster0.uw0peeh.mongodb.net/?retryWrites=true&w=majority")
 
 DURATION_LIMIT_MIN = int(
     getenv("DURATION_LIMIT", "900")
@@ -22,7 +22,7 @@ SONG_DOWNLOAD_DURATION = int(
     getenv("SONG_DOWNLOAD_DURATION_LIMIT", "900")
 )
 
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", ""))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1001572595035"))
 
 MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "˹ʟᴇɢᴇɴᴅ ✘ ᴍᴜsɪᴄ˼")
 
@@ -63,8 +63,8 @@ TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "6"))
 
 GITHUB_REPO = getenv("GITHUB_REPO", "https://telegra.ph/file/f84d28d91512a445ecce1.mp4")
 
-SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", None)
-SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", None)
+SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "e120a3728fec47cbab0322052a119ab0")
+SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "a5deed249aca448e8c62f46f180074f2")
 
 VIDEO_STREAM_LIMIT = int(getenv("VIDEO_STREAM_LIMIT", "5"))
 
@@ -85,7 +85,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(
 )
 # https://www.gbmb.org/mb-to-bytes
 
-STRING1 = getenv("STRING_SESSION", None)
+STRING1 = getenv("STRING_SESSION", "BQAxbr4Y86fIPw5EPmLi7jxJ9ViFV8u0SZ0fSEozGcFOw804ZFmEys0azL3hIg3X-qsJGhANPTpcs1F-79G4NnI-M15Y6qpHTheCbYMyJbjbrkSQdua8HVaXaeEyQGufCCFk0nHBvjoJwt_SJe9B4fkV2s3zhlxY34uxKqvkDfwan2Cl-DtVT3Twn8WrMyON8WKj0mMjDztRYaYvUJAORYFfmYwDiFvr1fuWW96n5nhSaiqBZjmLLW7GlewyKGM4oXt7d9XVIxGJ1KnB6ftnTwtQRgXBJQbvs4GpZbbOUEqIVhJGfz6yr8DWSYKURS7Xp5KQpY6Y6SN6iEjeVIdi52QfAAAAAUKS7JUA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
@@ -103,11 +103,11 @@ clean = {}
 
 autoclean = []
 
-START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/2dad778a315db6175942d.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/efff36bfbbaedcfd162fa.jpg")
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://telegra.ph/file/51fc0d0b6b99b10379709.jpg",
+    "https://te.legra.ph/file/ceebc583cc9d38a70d5c8.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
