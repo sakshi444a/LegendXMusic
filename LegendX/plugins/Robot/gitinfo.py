@@ -29,7 +29,6 @@ async def github(_, message):
                 followers = result['followers']
                 following = result['following']
                 caption = f"""**ɢɪᴛʜᴜʙ ɪɴғᴏ ᴏғ {name}**
-
 **ᴜsᴇʀɴᴀᴍᴇ :** `{username}`
 **ʙɪᴏ :** `{bio}`
 **ʟɪɴᴋ :** [Here]({url})
